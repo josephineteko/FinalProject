@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="style/register.css" />
   <title>
     Register
   </title>
 </head>
     <body>
+      <div class="background">
         <h1>Create a new account </h1>
         <form>
         <label>Username: <input></label></br>
@@ -16,5 +17,6 @@
         <input type="submit" value="Sign in" >
         </form>
         </div>
+      </div>
     </body>
 </html>

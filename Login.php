@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="style/login.css" />
   <title>
     Login
   </title>
 </head>
     <body>
-        <h1>Advice for foreigners in Korea </h1>
+      <div class="background">
+        <h1>Advices for foreigners in Korea </h1>
         <form>
         <label>Username: <input></label></br>
         <label>Password: <input></label></br>
@@ -17,5 +18,6 @@
         <input type="submit" value="Log in" >
         </form>
         </div>
+      </div>
     </body>
 </html>
