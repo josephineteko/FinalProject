@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Ven 08 Décembre 2017 à 12:37
+-- Généré le :  Sam 09 Décembre 2017 à 12:27
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
@@ -22,10 +22,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `article` (
   `id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL,
+  `id_type` int(11) NOT NULL,
   `title` text NOT NULL,
   `content` text NOT NULL,
-  `user_id` text NOT NULL,
+  `id_user` text NOT NULL,
+  `id_img` int(11) NOT NULL,
   `created_date` date NOT NULL,
   `last_modification` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -48,6 +49,18 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `path_img` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `type_article`
 --
 
@@ -55,6 +68,15 @@ CREATE TABLE `type_article` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `type_article`
+--
+
+INSERT INTO `type_article` (`id`, `name`) VALUES
+(1, 'food'),
+(2, 'place'),
+(3, 'tips');
 
 -- --------------------------------------------------------
 
@@ -70,18 +92,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `password`, `last_auth`) VALUES
-(1, 'tran', 'qwerty', '0000-00-00'),
-(2, 'tran', 'qwerty', '0000-00-00'),
-(3, 'tran2', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00'),
-(4, 'tran3', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00'),
-(5, 'tran4', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00'),
-(6, 'tran4', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00');
-
---
 -- Index pour les tables exportées
 --
 
@@ -95,6 +105,12 @@ ALTER TABLE `article`
 -- Index pour la table `comment`
 --
 ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `image`
+--
+ALTER TABLE `image`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -124,12 +140,17 @@ ALTER TABLE `article`
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `image`
+--
+ALTER TABLE `image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `type_article`
 --
 ALTER TABLE `type_article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
