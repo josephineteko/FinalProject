@@ -11,9 +11,9 @@
     <body>
       <div class="background">
         <h1>Create a new account </h1>
-        <form>
-        <label>Username: <input></label></br>
-        <label>Password: <input></label></br>
+        <form action="request/auth/register.php" method="post">
+        <label for="username">Username: <input type="text" name="username" id="username"></label></br>
+        <label for="password">Password: <input type="password" name="password" id="password"></label></br>
         <input type="submit" value="Sign in" >
         </form>
         </div>
