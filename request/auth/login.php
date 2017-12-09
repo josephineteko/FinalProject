@@ -23,7 +23,7 @@ function login($username, $password) {
 
 	$res = $bdd->query($sql);
 	$output = $res->fetchAll(PDO::FETCH_OBJ);
-	if (empty($res)) {
+	if (empty($output)) {
 	   response(401,"bad request",NULL);
 	}
 	else {
