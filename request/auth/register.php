@@ -36,7 +36,6 @@ function createUser($username, $password) {
       } catch (Exception $e) {
           //die('Error : ' . $e->getMessage());
       }
-  return $output;
 }
 
 function response($status,$status_message,$data)
@@ -50,3 +49,4 @@ function response($status,$status_message,$data)
 	$json_response = json_encode($response);
 	echo $json_response;
 }
+?>
