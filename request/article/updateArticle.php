@@ -13,7 +13,7 @@
       // connection to the database.
       try {
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bdd = new PDO('mysql:host=localhost;dbname=contact', 'root', 'password', $pdo_options);
+        $bdd = new PDO('mysql:host=localhost;dbname=contact', 'root', 'root', $pdo_options);
 
         uploadFile($path, $id_img, $bdd);
         updateArticle($title, $content, $id_user, $id, $bdd);
