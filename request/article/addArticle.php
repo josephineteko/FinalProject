@@ -13,7 +13,7 @@ if(!empty($_POST['id_type']) && !empty($_POST['title'])
 	try {
 				// connection to the database.
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'password', $pdo_options);
+				$bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'root', $pdo_options);
 				$id_img = uploadFile($path, $bdd);
 				if ($id_img != NULL) {
 					createArticle($id_type, $title, $content, $id_user, $id_img, $bdd);
@@ -37,7 +37,7 @@ function uploadFile($path, $bdd) {
 	      	mkdir($upload_directory, 0755, true);
 	    	}
 	    	if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
-			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', $upload_directory.'$targetPath')";
+			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory''$targetPath')";
 					$res = $bdd->query($sql);
 					if(empty($res)) {
 						response(401,"bad request",NULL);
