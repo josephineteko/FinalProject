@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"  type="text/css" href="css/styles.css">
+  <title>Doc API</title>
+</head>
+<body>
+  <center>
+  <header vertical-align="middle">
+    <h3>API Request</h3>
+  </header>
+  <div>
+      <div class="auth">
+      <h3>POST method request/auth/login.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>username</td>
+          <td>name of user</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>password</td>
+        </tr>
+      </table>
+    </div>
+    <br/>
+    <div class="auth">
+      <h3>GET method request/auth/login.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>username</td>
+          <td>name of user</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>password</td>
+        </tr>
+      </table>
+      <h4>Responses</h4>
+      <table>
+        <tr>
+          <th>Code</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            {<br/>
+    &nbsp;&nbsp;&nbsp;"status": 200,<br/>
+    &nbsp;&nbsp;&nbsp;"status_message": "User exist",<br/>
+    &nbsp;&nbsp;&nbsp;"data": [<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "4",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"username": "tran3",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"password": "d8578edf8458ce06fbc5bb76a58c5ca4",<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last_auth": "0000-00-00"<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;]<br/>
+          }
+        </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>"Invalid Request"</td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>"Bad Request"</td>
+        </tr>
+        <tr>
+          <td>402</td>
+          <td>"Error Server"</td>
+        </tr>
+      </table>
+      </div>
+      <br/>
+      <div class="comment">
+      <h3>POST method request/comment/addComment.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id_user</td>
+          <td>id of user</td>
+        </tr>
+        <tr>
+          <td>id_article</td>
+          <td>id article</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>Description of comment</td>
+        </tr>
+      </table>
+      <h3>POST method request/comment/updateComment.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>id of comment</td>
+        </tr>
+        <tr>
+          <td>id_article</td>
+          <td>id article</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>Description of comment</td>
+        </tr>
+      </table>
+      </div>
+      <br/>
+      <div class="comment">
+      <h3>POST method request/comment/updateComment.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>id of comment</td>
+        </tr>
+        <tr>
+          <td>id_article</td>
+          <td>id article</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>Description of comment</td>
+        </tr>
+      </table>
+      </div>
+      <br/>
+      <div class="article">
+      <h3>POST method request/article/addArticle.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Name of acticle</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>Description of article</td>
+        </tr>
+        <tr>
+          <td>id_user</td>
+          <td>id of user</td>
+        </tr>
+        <tr>
+          <td>id_type</td>
+          <td>id type (1, 2, 3 for food, place, tip)</td>
+        </tr>
+        <tr>
+          <td>path</td>
+          <td>Image directory</td>
+        </tr>
+      </table>
+      </div>
+      <br/>
+      <div class="article">
+
+      <h3>POST method request/article/updateArticle.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>id of acticle</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Name of acticle</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>Description of article</td>
+        </tr>
+        <tr>
+          <td>id_user</td>
+          <td>id of user</td>
+        </tr>
+        <tr>
+          <td>id_img</td>
+          <td>id of image</td>
+        </tr>
+        <tr>
+          <td>path</td>
+          <td>Image directory</td>
+        </tr>
+      </table>
+      </div>
+      <br/>
+      <div class="article">
+
+      <h3>GET method request/article/getListArticle.php :</h3>
+      <h4>Parameter</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id_user</td>
+          <td>id of acticle</td>
+        </tr>
+      </table>
+      <h4>Responses</h4>
+      <table>
+        <tr>
+          <th>Code</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+  &nbsp;&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;    "status": 200,<br/>
+&nbsp;&nbsp;&nbsp;    "status_message": "Success",<br/>
+&nbsp;&nbsp;&nbsp;    "data": [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "title": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "content": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "last_modification": "2017-12-09",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_user": "",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_img": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "path_img": ".1512809093ic_pin_12_default.png.",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "img_name": ".ic_pin_12_default.png."<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        },<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "3",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "title": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "content": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "last_modification": "2017-12-09",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_user": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_img": "10",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "path_img": "1512818024ic_pin_1.png",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "img_name": "ic_pin_1.png"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        },<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "4",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "title": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "content": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "last_modification": "2017-12-09",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_user": "1",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id_img": "11",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "path_img": "1512818072ic_pin_1.png",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "img_name": "ic_pin_1.png"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        }<br/>
+&nbsp;&nbsp;&nbsp;      ]<br/>
+&nbsp;&nbsp;&nbsp;    }<br/>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </center>
+</body>
+</html>

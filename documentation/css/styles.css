@@ -1,0 +1,42 @@
+header {
+  background-color: rgb(153, 209, 204);
+  text-align: center;
+  font-size: 24px;
+  height: 50px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+table {
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 20px;
+}
+
+th {
+  height: 50px;
+}
+
+td {
+  padding: 5px;
+  /*text-align: center;
+  align-items: center;*/
+}
+
+.auth {
+  background-color: rgb(255, 255, 153);
+}
+
+.comment {
+  background-color: 	rgb(153, 255, 204);
+}
+
+.article {
+  background-color: 	rgb(204, 153, 255);
+}
+
+.style_input {
+width: 200px;
+height: 20px;
+font-size: 14px;
+}
