@@ -50,8 +50,9 @@ function uploadFile($path, $bdd) {
 	    	if (!is_dir($upload_directory)){
 	      	mkdir($upload_directory, 0755, true);
 	    	}
-	    	if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
-			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory$targetPath')";
+				// if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
+				//move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath);
+				  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory$targetPath')";
 					$res = $bdd->query($sql);
 					if(empty($res)) {
 						response(401,"bad request",NULL);
@@ -62,14 +63,14 @@ function uploadFile($path, $bdd) {
 						return $id_img;
 					}
 	    	}
-				else {
-					if (!headers_sent()) {
-						header('Location: ../../addArticle.php?id_user='.$id_user);
-						exit;
-					}
-					response(405,"Invalid Image",NULL);
-				}
-	  	}
+				// else {
+				// 	if (!headers_sent()) {
+				// 		header('Location: ../../addArticle.php?id_user='.$id_user);
+				// 		exit;
+				// 	}
+				// 	response(405,"Invalid Image",NULL);
+				// }
+	  	//}
 	return NULL;
 }
 
