@@ -80,16 +80,13 @@ input[type=submit]:hover {
     background-color: #b3b3b3;
 }
 
-.label-file {
-    cursor: pointer;
-    color: #00b1ca;
-    font-weight: bold;
-}
-.label-file:hover {
-    color: #25a5c4;
-}
-
-/*// et on masque le input*/
-.input-file {
-    display: none;
+button {
+  width: 100%;
+  background-color: #cccccc;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
