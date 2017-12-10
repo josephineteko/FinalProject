@@ -50,7 +50,12 @@ function uploadFile($path, $bdd) {
 	    	if (!is_dir($upload_directory)){
 	      	mkdir($upload_directory, 0755, true);
 	    	}
-	    	if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
+		$tmp_name = $_FILES["path"]["tmp_name"];
+		$name = "img/".$_FILES['path']['name'];
+		$filename=$_FILES['path']['name'];
+		$upload_image=$_FILES['path'] ['tmp_name'];
+		echo  $upload_image;
+	    	if (move_uploaded_file($tmp_name, $name)) {
 			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory$targetPath')";
 					$res = $bdd->query($sql);
 					if(empty($res)) {
@@ -63,6 +68,10 @@ function uploadFile($path, $bdd) {
 					}
 	    	}
 				else {
+				    echo '<pre>';
+				        echo 'Here is some more debugging info:';
+					    print_r($_FILES);
+					        print "</pre>";
 					// if (!headers_sent()) {
 					// 	header('Location: ../../addArticle.php?id_user='.$id_user);
 					// 	exit;
