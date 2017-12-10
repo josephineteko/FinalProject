@@ -25,20 +25,20 @@ if(!empty($_POST['id_type']) && !empty($_POST['title'])
 					createArticle($id_type, $title, $content, $id_user, $id_img, $bdd);
 				}
 		} catch (Exception $e) {
-			 die('Error : ' . $e->getMessage());
-			// if (!headers_sent()) {
-			// 	header('Location: ../../addArticle.php?id_user='.$id_user);
-			// 	exit;
-			// }
+			// die('Error : ' . $e->getMessage());
+			if (!headers_sent()) {
+				header('Location: ../../addArticle.php?id_user='.$id_user);
+				exit;
+			}
 			response(402,"Error Server",NULL);
 		}
 }
 else
 {
-	// if (!headers_sent()) {
-	// 	header('Location: ../../Login.php');
-	// 	exit;
-	// }
+	if (!headers_sent()) {
+		header('Location: ../../Login.php');
+		exit;
+	}
 	response(400,"Invalid Request",NULL);
 }
 
@@ -63,10 +63,10 @@ function uploadFile($path, $bdd) {
 					}
 	    	}
 				else {
-					// if (!headers_sent()) {
-					// 	header('Location: ../../addArticle.php?id_user='.$id_user);
-					// 	exit;
-					// }
+					if (!headers_sent()) {
+						header('Location: ../../addArticle.php?id_user='.$id_user);
+						exit;
+					}
 					response(405,"Invalid Image",NULL);
 				}
 	  	}
@@ -81,17 +81,17 @@ function createArticle($id_type, $title, $content, $id_user, $id_img, $bdd) {
 
 				$res = $bdd->query($sql);
 				if(empty($res)) {
-					// if (!headers_sent()) {
-					// 	header('Location: ../../addArticle.php?id_user='.$id_user);
-					// 	exit;
-					// }
+					if (!headers_sent()) {
+						header('Location: ../../addArticle.php?id_user='.$id_user);
+						exit;
+					}
 					response(401,"bad request",NULL);
 				}
 				else {
-					// if (!headers_sent()) {
-					// 	header('Location: ../../home.php?id_user='.$id_user);
-					// 	exit;
-					// }
+					if (!headers_sent()) {
+						header('Location: ../../home.php?id_user='.$id_user);
+						exit;
+					}
 					response(200,"Article is post",$res);
 				}
 }
@@ -105,7 +105,6 @@ function response($status,$status_message,$data)
 	$response['data']=$data;
 
 	$json_response = json_encode($response);
-
 	echo $json_response;
 
 }
