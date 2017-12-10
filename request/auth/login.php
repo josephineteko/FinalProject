@@ -6,11 +6,12 @@ if(!empty($_GET['username']) && !empty($_GET['password']))
 {
   $username = $_GET['username'];
   $password = $_GET['password'];
+
   login($username, $password);
 }
 else
 {
-	response(400,"Invalid Request",NULL);
+	response(400,"Invalid Request", "username or password is empty");
 }
 
 function login($username, $password) {
@@ -29,7 +30,6 @@ function login($username, $password) {
 	}
 	else {
 	   response(200,"User exist",$output);
-	   header("Location:../../home.php");
 	}
       } catch (Exception $e) {
       	response(402,"Error Server",NULL);
