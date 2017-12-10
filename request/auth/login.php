@@ -29,6 +29,7 @@ function login($username, $password) {
 	}
 	else {
 	   response(200,"User exist",$output);
+	   header("Location:../../home.php");
 	}
       } catch (Exception $e) {
       	response(402,"Error Server",NULL);
