@@ -23,7 +23,7 @@
           <li><a href="addArticle.php?id_user=<?php  echo $id;?>">Add Article</a></li>
         </ul>
       <div class="body">
-        <form method="post" action="request/article/addArticle.php" enctype="multipart/form-data" onsubmit="myFunction()">
+        <form method="post" action="request/article/addArticle.php" enctype="multipart/form-data" >
         <input type="hidden" name="id_user" value="<?php  echo $id;?>"/>
         <label>Title</label> <input type='text' name='title'/></br>
         <label> Description</label> <input type='text' name='content'/></br>
@@ -35,18 +35,6 @@
         <input type="submit" value="Add your new article"/>
         </form>
 
-        <script>
-        function myFunction() {
-          	window.location.assign("https://www.google.co.kr/");
-        }
-        // $(document).ready(function() {
-        // // bind 'f1' form and provide a simple callback function
-        //     $('#add').ajaxForm(function() {
-        //           window.location.href = "home.php?id_user=<?php  echo $id;?>";
-        //     });
-        // });
-
-        </script>
       </div>
     </body>
 </html>
