@@ -26,7 +26,7 @@ $(function() {
             $.get('request/comment/getListComment.php',
             { "id_article": field.id } ,function(data_comment) {    //console.log(data["code"]);
                 $.each(data_comment['data'],function(i,comment){
-                    $( "<p>"+comment.content+"</p>" ).insertBefore( ".id_article" )
+                    $( "<p>"+comment.content+"</p>" ).insertBefore( "."+field.id )
                     // $('#'+field.id).append("<p>"+comment.content+"</p>");
                   });
                 }, "json");
@@ -34,7 +34,7 @@ $(function() {
               type: "text",
               placeholder: "Add comment",
               name: "id_article",
-              class: "id_article",
+              class: field.id,
               id: field.id,
               onkeypress:"addComment(this)"
             }));
@@ -54,7 +54,7 @@ $(function() {
         } ,function(data) {
             //console.log(data["status"]);
             if (data["status"] == "200") {
-              $( "<p>"+elem.value+"</p>" ).insertBefore( ".id_article" );
+              $( "<p>"+elem.value+"</p>" ).insertBefore( "."+elem.id );
             }
             // $.each(data['data'],function(i,field){
             //     e
