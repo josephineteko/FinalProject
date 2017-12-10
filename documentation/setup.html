@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Setup Server</title>
+</head>
+<div style="text-align: left; margin-left: 20px">
+    <h1>
+    How to Setup a server for our Final Project :<br>
+    </h1>
+    <br>
+    First, we need to Set Up an Apache Virtual Hosts on our server (Debian)<br>
+    Install and update apache2 if necessary<br>
+    <div style="color: gray">
+        <b>
+        •	sudo apt-get update<br>
+        •	sudo apt-get install apache2<br>
+        </b>
+    </div>
+    <br>
+    Then you can clone our Github repo in  /var/www directory<br>
+    <div style="color: gray">
+        <b>•	git clone <a href="https://github.com/josephineteko/FinalProject">https://github.com/josephineteko/FinalProject</a></b><br>
+    </div><br>
+    We should modify the persmissions to ensure that read access is permitted<br>
+    <div style="color: gray; ">
+        <b>•	sudo chmod -R 755 /var/www</b><br>
+    </div><br>
+    Then we can Create the Virtual Host File (Virtual host files are the files that specify the actual configuration of our virtual hosts and dictate how the Apache web server will respond to various domain requests.)<br>
+    <div style="color: gray">
+        <b>
+        root@vps326540:/etc/apache2/sites-available# cat FinalProject.food-o.eu.conf<br><br>
+        VirtualHost *:80><br>
+            &nbsp;&nbsp;&nbsp;DocumentRoot /var/www/FinalProject/<br>
+            &nbsp;&nbsp;&nbsp;ServerName FinalProject.food-o.eu<br>
+            &nbsp;&nbsp;&nbsp;Directory "/var/www/FinalProject/"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order allow,deny<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow from all<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# New directive needed in Apache 2.4.3:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Require all granted<br>
+            &nbsp;&nbsp;&nbsp;/Directory><br>
+        /VirtualHost><br>
+        </b>
+    </div>
+    <br>
+    Now that we have created our virtual host files, we must enable them. Apache includes some tools that allow us to do this.<br>
+    We can use the a2ensite tool to enable each of our sites like this:<br>
+    <div style="color: gray">
+        <b>
+            •	sudo a2ensite FinalProject.food-o.eu.conf<br>
+        </b>
+    </div><br>
+    If you haven't been using actual domain names that you own to test this procedure and have been using some example domains instead, you can at least test the functionality of this process by temporarily modifying the hosts file on your local computer.<br>
+    It’s the case on my personnal serveur (hosted with OVH)<br>
+    <div style="color: gray">
+        <b>
+        root@vps326540:/etc/apache2/sites-available# cat /etc/hosts<br><br>
+        127.0.0.1       localhost<br>
+        213.32.17.250   docs.food-o.eu<br>
+        213.32.17.250   vps326540.ovh.net       vps326540<br>
+        213.32.17.250   food-o.eu<br>
+        213.32.17.250   api.food-o.eu<br>
+        213.32.17.250   FinalProject.food-o.eu<br>
+        </b>
+    </div><br>
+
+    If the server is hosted on OVH, you also need to add the subdomain of the configuration pannel (here FinalProject).<br>
+    The Project is finaly OnLine for you to simply test it !<br>
+    <div style="color: gray">
+        <b>
+        <a href="http://finalproject.food-o.eu/">http://finalproject.food-o.eu/</a><br>
+        </b>
+    </div>
+    <br>
+
+    You can connect to the server to see those configurations by yourself :
+    <div style="color: gray">
+        <b>
+        IPv4 address of the VPS : 213.32.17.250
+        User : root
+        Password : qkdX0I2l
+        </b>
+    </div><br>
+    <div style="color: red">/!\</div> Please note that this is my personal server so don't change anything on it, Thanks : Célestin <div style="color: red">/!\</div>
+</div>
+<body>
+
+</body>
+</html>
