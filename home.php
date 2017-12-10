@@ -17,8 +17,8 @@
         <h1>Bienvenue</h1>
         <div id="body">
           <div class="article">
-            <h3>Sylviane Tran</h3>
-            <img src="request/article/img/1512842536ic_pin_1.png"/></br>
+            <h3><img src="request/article/img/food.png" class="type_article" hspace="20"></img>Sylviane Tran</h3>
+            <img src="request/article/img/1512878474seoul.jpg"/>
             <h3>Seoul</h3>
             <p>Séoul est la capitale et la plus grande ville de la Corée du Sud. Située sur le fleuve Han, au nord-ouest du pays, elle
               compte une population d'environ dix millions d'habitants intra-muros et 25 62</p>

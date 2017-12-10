@@ -19,8 +19,12 @@ img {
   width: 600px;
 }
 
-h3 {
+img.type_article {
+  border: none ;
+  vertical-align: middle;
+  width: 64px;
 }
+
 
 p {
   text-align: justify;
@@ -33,17 +37,20 @@ h4.comment {
   color: #000000;
 }
 
+h3 {
+  align-content: center;
+}
 input[type=text] {
-    font-size: 12px;
+    font-size: 13px;
     border: none;
     width: 100%;
     padding: 5px 5px;
     box-sizing: border-box;
-    border-bottom: 2px solid #f2f2f2;
+    border-top: 2px solid #f2f2f2;
     outline: none;
 
 }
 
-input[type=text]:focus {
-    border-bottom: 2px solid #cccccc;
-}
+/*input[type=text]:focus {
+    border-top: 2px solid #cccccc;
+}*/

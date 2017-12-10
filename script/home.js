@@ -7,9 +7,16 @@ $(function() {
               class : 'article'
               }));
             $('#'+field.id).append($('<h3>', {
-                text:  "Sylviane",
-                id : field.id_user,
+                id : "h3_"+field.id
               }));
+              $('#h3_'+field.id).append($('<img>', {
+                  id : field.id_user,
+                  class : "type_article",
+                  hspace : "20",
+                  value : "Sylviane",
+                  src : field.path_logo
+                }));
+            $('#h3_'+field.id).append('Sylviane');
             $('#'+field.id).append($('<img>', {
               src: 'request/article/'+ field.path_img,
               name : field.id_img
