@@ -18,7 +18,7 @@
         <input type="hidden" name="id_user" value="1"/>
         <label>Title</label> <input type='text' name='title'/></br>
         <label> Description</label> <input type='text' name='content'/></br>
-        <label for="country">Country</label>
+        <label for="country">Type of Article</label>
         <select id="type_article" name="id_type">
         </select>
         <label> Add picture </label>

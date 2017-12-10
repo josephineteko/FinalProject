@@ -38,13 +38,14 @@ function uploadFile($path, $bdd) {
 	      	mkdir($upload_directory, 0755, true);
 	    	}
 	    	if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
-			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory''$targetPath')";
+			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory$targetPath')";
 					$res = $bdd->query($sql);
 					if(empty($res)) {
 						response(401,"bad request",NULL);
 						return NULL;
 					}
 					else {
+						echo $sql;
 						$id_img = $bdd->lastInsertId();
 						return $id_img;
 					}
