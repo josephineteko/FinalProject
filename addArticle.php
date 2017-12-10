@@ -13,13 +13,18 @@
   </title>
 </head>
     <body>
-      <ul id="nav">
-        <li><a href="home.php">Home</a></li>
-        <li><a href="addArticle.php">Add Article</a></li>
-      </ul>
+      <?php
+        if (isset($_GET['id_user'])) {
+          $id = $_GET['id_user'];
+        }
+        ?>
+        <ul id="nav">
+          <li><a href="home.php?id_user=<?php  echo $id;?>">Home</a></li>
+          <li><a href="addArticle.php?id_user=<?php  echo $id;?>">Add Article</a></li>
+        </ul>
       <div class="body">
-        <form method="post" action="request/article/addArticle.php" enctype="multipart/form-data">
-        <input type="hidden" name="id_user" value="1"/>
+        <form method="post" action="request/article/addArticle.php" enctype="multipart/form-data" onsubmit="myFunction()">
+        <input type="hidden" name="id_user" value="<?php  echo $id;?>"/>
         <label>Title</label> <input type='text' name='title'/></br>
         <label> Description</label> <input type='text' name='content'/></br>
         <label for="country">Type of Article</label>
@@ -27,8 +32,21 @@
         </select>
         <label> Add picture </label>
         <input type='file' name='path'/></br>
-        <input type="submit" value="Add your new article" />
+        <input type="submit" value="Add your new article"/>
         </form>
+
+        <script>
+        function myFunction() {
+          	window.location.assign("https://www.google.co.kr/");
+        }
+        // $(document).ready(function() {
+        // // bind 'f1' form and provide a simple callback function
+        //     $('#add').ajaxForm(function() {
+        //           window.location.href = "home.php?id_user=<?php  echo $id;?>";
+        //     });
+        // });
+
+        </script>
       </div>
     </body>
 </html>
