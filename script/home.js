@@ -1,5 +1,6 @@
 $(function() {
       $.get('request/article/getListArticle.php', function(data) {
+
           $.each(data['data'],function(i,field){
 
             $('#body').append($('<div>', {
@@ -13,10 +14,10 @@ $(function() {
                   id : field.id_user,
                   class : "type_article",
                   hspace : "20",
-                  value : "Sylviane",
+                  value : field.username,
                   src : field.path_logo
                 }));
-            $('#h3_'+field.id).append('Sylviane');
+            $('#h3_'+field.id).append(field.username);
             $('#'+field.id).append($('<img>', {
               src: 'request/article/'+ field.path_img,
               name : field.id_img
@@ -33,7 +34,7 @@ $(function() {
             $.get('request/comment/getListComment.php',
             { "id_article": field.id } ,function(data_comment) {    //console.log(data["code"]);
                 $.each(data_comment['data'],function(i,comment){
-                    $( "<p>"+comment.content+"</p>" ).insertBefore( "."+field.id )
+                    $( "<p><b>"+ comment.username +"</b> "+comment.content+"</p>" ).insertBefore( "."+field.id )
                     // $('#'+field.id).append("<p>"+comment.content+"</p>");
                   });
                 }, "json");
@@ -52,17 +53,18 @@ $(function() {
   });
 
   function addComment(elem) {
+    var id_user = document.getElementById('id_user').value;
       if(event.key === 'Enter') {
-        console.log("id : "+ elem.id);
         $.post('request/comment/addComment.php',
         { "id_article": elem.id,
-          "id_user": "1",
+          "id_user": id_user,
           "content": elem.value
         } ,function(data) {
             //console.log(data["status"]);
             if (data["status"] == "200") {
               $( "<p>"+elem.value+"</p>" ).insertBefore( "."+elem.id );
             }
+            elem.value = "";
             // $.each(data['data'],function(i,field){
             //     e
             //   });

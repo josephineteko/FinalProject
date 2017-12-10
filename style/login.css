@@ -4,7 +4,7 @@ html {
   margin-top: -17px;
   margin-left: 0;
   margin-right: 0;
-} 
+}
   .background{
     background-image: url("image/south-korea.jpg");
     height: 100%;
@@ -22,11 +22,17 @@ form{
     color: white;
     font-size:30px;
     margin-top:15%;
-    margin-left: 75%;   
+    margin-left: 75%;
 }
 
 a{
     color: white;
     font-size: 25px;
     margin-left: 10%;
+}
+
+button {
+  margin-top:10px;
+  margin-left: 75%;
+  width: 60px;
 }

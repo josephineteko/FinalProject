@@ -15,7 +15,7 @@ function getListComment($id_article) {
         // connection to the database.
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
         $bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
-        $sql = "SELECT * FROM comment WHERE id_article=".$id_article;
+        $sql = "SELECT c.content, u.username FROM comment c INNER JOIN user u ON c.id_user = u.id  WHERE id_article=".$id_article;
         $res = $bdd->query($sql);
         $output = $res->fetchAll(PDO::FETCH_OBJ);
         if(empty($output))

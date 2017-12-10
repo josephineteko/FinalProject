@@ -15,12 +15,12 @@
     <body>
       <div class="background">
         <h1>Advices for foreigners in Korea </h1>
-        <form action="request/auth/login.php" method="get">
+        <form id="login">
         <label for="username">Username: <input type="text" name="username" id="username"></label></br>
         <label for="password">Password: <input type="password" name="password" id="password"></label></br>
         <a href=register.php>Click here for sign up</a></br>
-        <input type="submit" value="Log in" >
         </form>
+        <button id="btn_login">Log in</button>
         </div>
       </div>
     </body>
