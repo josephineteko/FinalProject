@@ -13,22 +13,13 @@
   </title>
 </head>
     <body>
+      <ul id="nav">
+        <li><a href="home.php">Home</a></li>
+        <li><a href="addArticle.php">Add Article</a></li>
+      </ul>
       <!-- <center> -->
-        <h1>Bienvenue</h1>
-        <div id="body">
-          <div class="article">
-            <h3><img src="request/article/img/food.png" class="type_article" hspace="20"></img>Sylviane Tran</h3>
-            <img src="request/article/img/1512878474seoul.jpg"/>
-            <h3>Seoul</h3>
-            <p>Séoul est la capitale et la plus grande ville de la Corée du Sud. Située sur le fleuve Han, au nord-ouest du pays, elle
-              compte une population d'environ dix millions d'habitants intra-muros et 25 62</p>
-            <h4>Comment</h4>
-            <p>trop bien</p>
-            <p>trop cool</p>
-            <p>top :)</p>
-            <input type="text" placeholder="Add comment"/>
-          </div>
-          <br/>
+        <div id="body" class="body">
+
         </div>
 
     <!-- </center> -->

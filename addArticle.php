@@ -13,7 +13,11 @@
   </title>
 </head>
     <body>
-        <h1>Add an article </h1>
+      <ul id="nav">
+        <li><a href="home.php">Home</a></li>
+        <li><a href="addArticle.php">Add Article</a></li>
+      </ul>
+      <div class="body">
         <form method="post" action="request/article/addArticle.php" enctype="multipart/form-data">
         <input type="hidden" name="id_user" value="1"/>
         <label>Title</label> <input type='text' name='title'/></br>
@@ -25,5 +29,6 @@
         <input type='file' name='path'/></br>
         <input type="submit" value="Add your new article" />
         </form>
+      </div>
     </body>
 </html>
