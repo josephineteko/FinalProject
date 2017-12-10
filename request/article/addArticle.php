@@ -1,5 +1,6 @@
 <?php
 header("Content-Type:application/json");
+include_once '../db_config.php';
 
 if(!empty($_POST['id_type']) && !empty($_POST['title'])
 	&& !empty($_POST['content']) && !empty($_POST['id_user'])
@@ -10,11 +11,10 @@ if(!empty($_POST['id_type']) && !empty($_POST['title'])
   $title = $_POST['title'];
 	$content = $_POST['content'];
 	$path = $_FILES['path']['name'];
-
 	try {
 				// connection to the database.
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'password', $pdo_options);
+				$bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 				$id_img = uploadFile($path, $bdd);
 				if ($id_img != NULL) {
 					createArticle($id_type, $title, $content, $id_user, $id_img, $bdd);
@@ -23,7 +23,6 @@ if(!empty($_POST['id_type']) && !empty($_POST['title'])
 			die('Error : ' . $e->getMessage());
 			response(402,"Error Server",NULL);
 		}
-
 }
 else
 {
@@ -39,13 +38,14 @@ function uploadFile($path, $bdd) {
 	      	mkdir($upload_directory, 0755, true);
 	    	}
 	    	if (move_uploaded_file($_FILES['path']['tmp_name'], $upload_directory.$targetPath)) {
-			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$targetPath')";
+			  	$sql = "INSERT INTO image (name, path_img) VALUES ('$path', '$upload_directory$targetPath')";
 					$res = $bdd->query($sql);
 					if(empty($res)) {
 						response(401,"bad request",NULL);
 						return NULL;
 					}
 					else {
+						echo $sql;
 						$id_img = $bdd->lastInsertId();
 						return $id_img;
 					}

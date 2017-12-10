@@ -1,0 +1,49 @@
+
+body {
+  background-color: #f2f2f2;
+}
+div.article {
+    margin: auto;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #cccccc;
+    background-color: white;
+    padding: 20px;
+    width:600px;
+}
+
+img {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: #cccccc;
+  width: 600px;
+}
+
+h3 {
+}
+
+p {
+  text-align: justify;
+}
+
+h4 {
+  color: #cccccc;
+}
+h4.comment {
+  color: #000000;
+}
+
+input[type=text] {
+    font-size: 12px;
+    border: none;
+    width: 100%;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #f2f2f2;
+    outline: none;
+
+}
+
+input[type=text]:focus {
+    border-bottom: 2px solid #cccccc;
+}
