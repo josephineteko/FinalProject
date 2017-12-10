@@ -11,8 +11,9 @@ function getListArticle() {
 				$bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 
         $sql = "SELECT a.id id, a.title title, a.content content, a.last_modification last_modification ".
-							", a.id_user id_user, a.id_img id_img, i.path_img path_img, i.name img_name, t.path_logo path_logo FROM article a ".
-							" INNER JOIN image i ON a.id_img = i.id INNER JOIN type_article t ON a.id_type = t.id ORDER BY last_modification";
+							", a.id_user id_user, a.id_img id_img, i.path_img path_img, i.name img_name, t.path_logo path_logo, u.username username FROM article a ".
+							" INNER JOIN image i ON a.id_img = i.id INNER JOIN type_article t ON a.id_type = t.id ".
+              " INNER JOIN user u ON a.id_user = u.id ORDER BY last_modification";
 
         $res = $bdd->query($sql);
         $output = $res->fetchAll(PDO::FETCH_OBJ);
