@@ -1,5 +1,7 @@
 <?php
-  // Execute SQL request on the database.
+  header("Content-Type:application/json");
+  include_once '../db_config.php';
+
   if (isset($_POST['id']) && isset($_POST['title'])
   && isset($_POST['content']) && isset($_POST['id_user'])
   && isset($_POST['id_img']) ) {
@@ -13,7 +15,7 @@
       // connection to the database.
       try {
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bdd = new PDO('mysql:host=localhost;dbname=contact', 'root', 'root', $pdo_options);
+        $bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 
         uploadFile($path, $id_img, $bdd);
         updateArticle($title, $content, $id_user, $id, $bdd);

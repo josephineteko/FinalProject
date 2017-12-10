@@ -1,5 +1,6 @@
 <?php
 header("Content-Type:application/json");
+include_once '../db_config.php';
 
 getListArticle();
 
@@ -7,7 +8,7 @@ function getListArticle() {
   try {
         // connection to the database.
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'root', $pdo_options);
+        $bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
         $sql = "SELECT * FROM type_article ";
 
         $res = $bdd->query($sql);

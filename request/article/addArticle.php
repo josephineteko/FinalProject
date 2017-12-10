@@ -1,5 +1,6 @@
 <?php
 header("Content-Type:application/json");
+include_once '../db_config.php';
 
 if(!empty($_POST['id_type']) && !empty($_POST['title'])
 	&& !empty($_POST['content']) && !empty($_POST['id_user'])
@@ -13,7 +14,7 @@ if(!empty($_POST['id_type']) && !empty($_POST['title'])
 	try {
 				// connection to the database.
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'root', $pdo_options);
+				$bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 				$id_img = uploadFile($path, $bdd);
 				if ($id_img != NULL) {
 					createArticle($id_type, $title, $content, $id_user, $id_img, $bdd);

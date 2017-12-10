@@ -1,5 +1,6 @@
 <?php
 header("Content-Type:application/json");
+include_once '../db_config.php';
 
 if(!empty($_GET['username']) && !empty($_GET['password']))
 {
@@ -16,7 +17,7 @@ function login($username, $password) {
   try {
         // connection to the database.
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'root', $pdo_options);
+        $bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 
         $crypt_password = md5($password);
         $sql = "SELECT id, username FROM user WHERE username='".$username."' AND password='".$crypt_password."'";

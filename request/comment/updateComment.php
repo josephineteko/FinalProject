@@ -1,5 +1,6 @@
 <?php
 header("Content-Type:application/json");
+include_once '../db_config.php';
 
 if(!empty($_POST['id_user']) && !empty($_POST['id'])
   && !empty($_POST['content']))
@@ -17,7 +18,7 @@ function updateComment($id_user, $id_article, $content) {
   try {
         // connection to the database.
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bdd = new PDO('mysql:host=localhost;dbname=final_project', 'root', 'root', $pdo_options);
+        $bdd = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE, DB_USER, DB_PASSWORD, $pdo_options);
 
         $date = new DateTime();
         $newDate = $date->format('Y-m-d H:i:s');

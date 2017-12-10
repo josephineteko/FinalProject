@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="style/addArticle.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="script/addArticle.js"></script>
   <title>
     Add Article
   </title>
@@ -16,24 +20,6 @@
         <label> Description</label> <input type='text' name='content'/></br>
         <label for="country">Country</label>
         <select id="type_article" name="id_type">
-          <!-- <script
-            src="https://code.jquery.com/jquery-3.2.1.js"
-            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-            crossorigin="anonymous"></script>
-          <script>
-            $(function() {
-                  $.get('request/typeArticle/getTypeArticle.php', function(data) {
-                   alert(JSON.stringify(data));
-                  // for(var key in data[0]){
-                  //         alert("Key is " + data[key] +"\n");
-                  //   }
-                  });
-              });
-          </script> -->
-
-          <option value="1">Food</option>
-          <option value="2">Place</option>
-          <option value="3">Tip</option>
         </select>
         <label> Add picture </label>
         <input type='file' name='path'/></br>
