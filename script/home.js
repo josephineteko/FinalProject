@@ -53,7 +53,6 @@ $(function() {
 
   function addComment(elem) {
       if(event.key === 'Enter') {
-        console.log("id : "+ elem.id);
         $.post('request/comment/addComment.php',
         { "id_article": elem.id,
           "id_user": "1",
